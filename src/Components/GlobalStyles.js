@@ -13,11 +13,17 @@ const GlobalStyles = createGlobalStyle`
     body{
         font-family:--apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         font-size:14px;
-        /* background-color:rgba(20,20,20,1); */
+        background-color:rgba(20,20,20,1);
         color:white;
-        padding-top:200px;
-        height:5000px;
+        padding-top:80px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        ::-webkit-scrollbar {
+          display: none;
+        }
     }
+
+
 `;
 
 export default GlobalStyles;
