@@ -26,7 +26,16 @@ const SearchContainer = () => {
       setLoading(false);
     }
   };
-  const handleSubmit = () => {
+  const updateTerm = (e) => {
+    const {
+      target: { value },
+    } = e;
+    console.log(value);
+    setSearchTerm(value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (searchTerm !== "") {
       searchByTerm();
     }
@@ -40,6 +49,7 @@ const SearchContainer = () => {
       loading={loading}
       error={error}
       handleSubmit={handleSubmit}
+      updateTerm={updateTerm}
     />
   );
 };

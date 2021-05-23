@@ -24,7 +24,7 @@ const HomeContainer = () => {
       } = await moviesApi.popular();
       setPopular(popular);
     } catch {
-      setError("Cant find movies information");
+      setError("Cant find movie information");
     } finally {
       setLoading(false);
     }

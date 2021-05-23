@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./Header";
 import Home from "../Routes/Home/index";
-import Pagenotfound from "../Routes/Pagenotfound";
+import Pagenotfound from "../Components/Pagenotfound";
 import Main from "./Main";
 import Tv from "../Routes/TV";
 import Search from "../Routes/Search";
