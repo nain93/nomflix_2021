@@ -17,20 +17,18 @@ const DetailContainer = () => {
     if (isNaN(parseId)) {
       return push("/");
     }
-    let result;
-    if (isMovie) {
-      try {
-        if (isMovie) {
-          ({ data: result } = await moviesApi.movieDetail(parseId));
-        } else {
-          ({ data: result } = await tvApi.showDetail(parseInt));
-        }
-      } catch {
-        setError("Can't find anything.");
-      } finally {
-        setLoading(false);
-        setResult(result);
+    let result = null;
+    try {
+      if (isMovie) {
+        ({ data: result } = await moviesApi.movieDetail(parseId));
+      } else {
+        ({ data: result } = await tvApi.showDetail(parseId));
       }
+    } catch {
+      setError("Can't find anything.");
+    } finally {
+      setLoading(false);
+      setResult(result);
     }
   }, [id, isMovie, push]);
 
@@ -38,7 +36,11 @@ const DetailContainer = () => {
     getSearch();
   }, [getSearch]);
 
-  return <DetailPresenter result={result} loading={loading} error={error} />;
+  return (
+    <>
+      <DetailPresenter result={result} loading={loading} error={error} />
+    </>
+  );
 };
 
 export default DetailContainer;

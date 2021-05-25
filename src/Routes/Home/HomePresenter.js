@@ -7,7 +7,7 @@ import Message from "../../Components/Message";
 import Poster from "../../Components/Poster";
 
 const Container = styled.div`
-  padding: 0 20px;
+  padding: 20px;
 `;
 
 function HomePresenter({ nowPlaying, popular, upComing, loading, error }) {
@@ -50,7 +50,15 @@ function HomePresenter({ nowPlaying, popular, upComing, loading, error }) {
           {popular?.length > 0 && (
             <Section title="popular Movies">
               {popular.map((movie) => (
-                <Poster />
+                <Poster
+                  key={movie.id}
+                  id={movie.id}
+                  imageUrl={movie.poster_path}
+                  title={movie.original_title}
+                  rating={movie.vote_average}
+                  year={movie.release_date.substring(0, 4)}
+                  isMovie={true}
+                />
               ))}
             </Section>
           )}
